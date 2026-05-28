@@ -5,6 +5,7 @@ import { Services } from "@/components/sections/services";
 import { Work } from "@/components/sections/work";
 import { Founder } from "@/components/sections/founder";
 import { HowWeBuild } from "@/components/sections/how-we-build";
+import { InstantQuoteCalculator } from "@/components/sections/instant-quote-calculator";
 import { Testimonials } from "@/components/sections/testimonials";
 import { CtaSection } from "@/components/sections/cta-section";
 import { createMetadata } from "@/lib/metadata";
@@ -25,6 +26,7 @@ export default function HomePage() {
       <Work />
       <Founder />
       <HowWeBuild />
+      <InstantQuoteCalculator />
       <Testimonials />
       <CtaSection />
     </>
