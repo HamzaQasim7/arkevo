@@ -1,0 +1,96 @@
+import { FadeIn } from "@/components/motion";
+import { Button } from "@/components/ui/button";
+import { Container } from "@/components/ui/container";
+import { NoiseOverlay } from "@/components/ui/noise-overlay";
+import { siteConfig } from "@/config/site";
+
+export function CtaSection() {
+  return (
+    <section id="contact" className="relative bg-surface py-section">
+      <div
+        className="absolute bottom-0 left-0 top-0 w-[3px] bg-accent"
+        aria-hidden
+      />
+
+      <Container>
+        <NoiseOverlay>
+          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
+            <div>
+              <FadeIn>
+                <h2 className="display-lg text-text-primary">
+                  Have something to build?
+                </h2>
+              </FadeIn>
+              <FadeIn delay={0.1}>
+                <p className="body-lg mt-6 max-w-md text-text-secondary">
+                  We work with startups and product teams who need serious
+                  engineering not just code.
+                </p>
+              </FadeIn>
+              <FadeIn delay={0.2}>
+                <p className="mt-4 font-body text-base font-medium text-accent">
+                  Currently accepting 2 new client projects.
+                </p>
+              </FadeIn>
+            </div>
+
+            <div className="space-y-4">
+              <FadeIn delay={0.2}>
+                <div className="rounded-md border border-border-low bg-bg p-6">
+                  <Button
+                    href={`mailto:${siteConfig.email}`}
+                    openContactSidebar
+                    className="w-full"
+                  >
+                    Start a Project
+                  </Button>
+                </div>
+              </FadeIn>
+
+              <FadeIn delay={0.3}>
+                <div className="flex items-start gap-4 rounded-md border border-border-low bg-bg p-6">
+                  <span
+                    className="material-symbols-outlined text-[22px] text-accent"
+                    aria-hidden
+                  >
+                    mail_outline
+                  </span>
+                  <div>
+                    <a
+                      href={`mailto:${siteConfig.email}`}
+                      className="font-body text-base font-medium text-text-primary transition-colors hover:text-accent"
+                    >
+                      {siteConfig.email}
+                    </a>
+                    <p className="mt-1 font-body text-sm text-text-muted">
+                      Email response within 24hr
+                    </p>
+                  </div>
+                </div>
+              </FadeIn>
+
+              <FadeIn delay={0.4}>
+                <div className="flex items-start gap-4 rounded-md border border-border-low bg-bg p-6">
+                  <span
+                    className="material-symbols-outlined text-[22px] text-accent"
+                    aria-hidden
+                  >
+                    location_on
+                  </span>
+                  <div>
+                    <p className="font-body text-base font-medium text-text-primary">
+                      {siteConfig.location}
+                    </p>
+                    <p className="mt-1 font-body text-sm text-text-muted">
+                      Available for remote worldwide
+                    </p>
+                  </div>
+                </div>
+              </FadeIn>
+            </div>
+          </div>
+        </NoiseOverlay>
+      </Container>
+    </section>
+  );
+}
