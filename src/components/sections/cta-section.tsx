@@ -78,8 +78,35 @@ export function CtaSection() {
                   </div>
                 </div>
               </FadeIn>
+
             </div>
           </div>
+
+          <FadeIn delay={0.5}>
+            <div className="mt-6 rounded-md border border-border-low bg-bg p-6 md:p-8">
+              <p className="section-label">Built for Global Teams</p>
+              <ul className="mt-4 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+                {[
+                  siteConfig.trustSignals.globalDelivery,
+                  siteConfig.trustSignals.timezone,
+                  siteConfig.trustSignals.payment,
+                  siteConfig.trustSignals.communication,
+                  siteConfig.trustSignals.contract,
+                  siteConfig.trustSignals.secpRegistrationNumber,
+                ].map((item) => (
+                  <li
+                    key={item}
+                    className="rounded-sm border border-border-low/70 bg-surface px-4 py-3 font-body text-sm text-text-secondary"
+                  >
+                    <span className="inline-flex items-start gap-3">
+                      <span className="mt-1 h-2 w-2 rounded-full bg-accent" aria-hidden />
+                      <span>{item}</span>
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </FadeIn>
         </NoiseOverlay>
       </Container>
     </section>

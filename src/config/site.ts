@@ -22,6 +22,20 @@ export const siteConfig = {
     sinceYear: "2020",
     photo: "/images/hamza-profilee.png",
   },
+  trustSignals: {
+    globalDelivery:
+      "Arkevo is based in Pakistan and delivers for founders and teams worldwide.",
+    timezone:
+      "We operate on PKT (UTC+5), with practical overlap across EU mornings and US evenings.",
+    payment:
+      "Commercial invoices are issued in USD, with payments supported via wire transfer, Wise, and Payoneer.",
+    communication:
+      "Execution stays transparent through structured daily async updates in Slack and Linear.",
+    contract:
+      "We work with a standard MSA and can include an NDA whenever your process requires it.",
+    secpRegistrationNumber:
+      "SECP-registered private limited company; registration details are shared during onboarding.",
+  },
   links: {
     linkedin: "https://www.linkedin.com/in/hamzaqasim-flutterdeveloper/",
     github: "https://github.com/HamzaQasim7",

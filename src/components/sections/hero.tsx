@@ -3,124 +3,31 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { EmberDot } from "@/components/ui/ember-dot";
+import { caseStudies, type CaseStudy } from "@/config/case-studies";
 import { cn } from "@/lib/utils";
 
-type PreviewProject = {
-  name: string;
-  title: string;
-  description: string;
-  badge: string;
-  badgeClass: string;
-  aspect: string;
-  tint: string;
-  initials: string;
-  image?: string;
-  imageWidth?: number;
-  imageHeight?: number;
-  tags?: string;
-};
-
-const previewProjects: PreviewProject[] = [
-  {
-    name: "Profound Aminos",
-    title: "WooCommerce Store Management System",
-    description:
-      "Built a comprehensive store management app with revenue analytics, inventory control, and customer support integration for a live e-commerce brand.",
-    tags: "Flutter · WooCommerce API · WordPress",
-    badge: "Live",
-    badgeClass: "bg-success/10 text-success border border-success/20",
-    aspect: "aspect-[4/5]",
-    tint: "from-accent-bg to-surface-2",
-    initials: "PA",
-    image: "/thumbs/profound-aminos-thumb.png",
-    imageWidth: 1000,
-    imageHeight: 1250,
-  },
-  {
-    name: "ValiseIQ",
-    title: "Airline Baggage Protection and Claims App",
-    description:
-      "Cross-platform mobile app enabling travelers to register luggage pre-flight, track bags in real time, and file damage or missing/delayed baggage claims with cryptographic evidence and MC99 deadline tracking.",
-    tags: "Flutter · Fastify · PostgreSQL · Firebase Auth/Storage/FCM",
-    badge: "Live",
-    badgeClass: "bg-success/10 text-success border border-success/20",
-    aspect: "aspect-[16/11]",
-    tint: "from-surface-2 to-bg",
-    initials: "VQ",
-    image: "/thumbs/valiseiq-thumb.png",
-    imageWidth: 1200,
-    imageHeight: 825,
-  },
-  {
-    name: "RealtyTextPro",
-    title: "Real Estate CRM Platform",
-    description:
-      "Delivered an end-to-end CRM for real estate professionals managing client pipelines, appointment scheduling, and deal tracking across iOS and Android.",
-    tags: "Flutter · Firebase · REST APIs",
-    badge: "Live",
-    badgeClass: "bg-success/10 text-success border border-success/20",
-    aspect: "aspect-[4/5]",
-    tint: "from-bg to-surface-2",
-    initials: "RT",
-    image: "/thumbs/realty-text-pro-thumb.png",
-    imageWidth: 1000,
-    imageHeight: 1250,
-  },
-  {
-    name: "Hambar",
-    title: "Custom WooCommerce Store Mobile App",
-    description:
-      "Custom WooCommerce store mobile app with full web-parity operations — ordering, payment gateway checkout, order filtering, tracking, and product recommendations.",
-    tags: "Flutter · WooCommerce · REST API",
-    badge: "Live",
-    badgeClass: "bg-success/10 text-success border border-success/20",
-    aspect: "aspect-[16/11]",
-    tint: "from-accent-bg/60 to-surface-2",
-    initials: "HB",
-    image: "/thumbs/hambar-thumb.png",
-    imageWidth: 1200,
-    imageHeight: 825,
-  },
-];
-
-function FeaturedProjectCard({ project }: { project: PreviewProject }) {
+function FeaturedProjectCard({ project }: { project: CaseStudy }) {
   return (
     <article className="group text-left">
-      {project.image ? (
-        <div className="relative overflow-hidden rounded-2xl border border-border-low">
-          <Image
-            src={project.image}
-            alt={project.name}
-            width={project.imageWidth ?? 1000}
-            height={project.imageHeight ?? 1250}
-            className="h-auto w-full"
-            sizes="(max-width: 768px) 100vw, 490px"
-          />
-        </div>
-      ) : (
-        <div
+      <div className="relative overflow-hidden rounded-2xl border border-border-low">
+        <Image
+          src={project.image}
+          alt={project.name}
+          width={project.imageWidth}
+          height={project.imageHeight}
+          className="h-auto w-full"
+          sizes="(max-width: 768px) 100vw, 490px"
+        />
+        <Link
+          href={`/products/${project.slug}`}
           className={cn(
-            "relative overflow-hidden rounded-2xl border border-border-low bg-gradient-to-br",
-            project.aspect,
-            project.tint
+            "absolute right-3 top-3 rounded border px-2.5 py-1 font-body text-[11px] font-semibold uppercase tracking-[0.08em] backdrop-blur-sm transition-colors duration-300 hover:border-accent hover:text-accent",
+            project.badgeClass
           )}
         >
-          <div className="absolute inset-0 opacity-[0.035] bg-[url('data:image/svg+xml,%3Csvg viewBox=%220 0 256 256%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.85%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22/%3E%3C/svg%3E')]" />
-          <div className="absolute inset-0 flex items-center justify-center">
-            <span className="font-display text-5xl font-extrabold text-text-muted/20 transition-colors duration-300 group-hover:text-accent/25">
-              {project.initials}
-            </span>
-          </div>
-          <span
-            className={cn(
-              "absolute bottom-4 left-4 rounded px-2 py-0.5 font-body text-xs font-medium backdrop-blur-sm",
-              project.badgeClass
-            )}
-          >
-            {project.badge}
-          </span>
-        </div>
-      )}
+          See case study
+        </Link>
+      </div>
 
       <div className="mt-5 flex items-center gap-2.5">
         <span className="flex h-7 w-7 items-center justify-center rounded bg-accent-bg font-body text-[10px] font-semibold text-accent">
@@ -129,7 +36,7 @@ function FeaturedProjectCard({ project }: { project: PreviewProject }) {
         <span className="font-body text-sm font-semibold text-text-primary">
           {project.name}
         </span>
-      {project.image ? (
+        {project.image ? (
           <span
             className={cn(
               "ml-auto rounded px-2 py-0.5 font-body text-xs font-medium",
@@ -211,14 +118,14 @@ export function Hero() {
 
           <div className="grid gap-12 md:grid-cols-2 md:gap-x-10">
             <div className="flex flex-col gap-12 md:gap-14">
-              {previewProjects
+              {caseStudies
                 .filter((_, index) => index % 2 === 0)
                 .map((project) => (
                   <FeaturedProjectCard key={project.name} project={project} />
                 ))}
             </div>
             <div className="flex flex-col gap-12 md:mt-24 md:gap-14">
-              {previewProjects
+              {caseStudies
                 .filter((_, index) => index % 2 === 1)
                 .map((project) => (
                   <FeaturedProjectCard key={project.name} project={project} />
