@@ -6,16 +6,9 @@ import { siteConfig } from "@/config/site";
 import { useTheme } from "@/components/providers/theme-provider";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
+import { Icon } from "@/components/ui/icon";
 import { Logo } from "@/components/ui/logo";
 import { cn } from "@/lib/utils";
-
-function MaterialIcon({ name, className }: { name: string; className?: string }) {
-  return (
-    <span className={cn("material-symbols-outlined", className)} aria-hidden>
-      {name}
-    </span>
-  );
-}
 
 export function Header() {
   const { theme, toggleTheme } = useTheme();
@@ -112,7 +105,7 @@ export function Header() {
               className="flex h-10 w-10 cursor-pointer items-center justify-center rounded text-text-secondary transition-colors duration-300 hover:text-accent focus:outline-none"
               aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
             >
-              <MaterialIcon
+              <Icon
                 name={theme === "dark" ? "light_mode" : "dark_mode"}
                 className="text-[22px]"
               />
@@ -132,7 +125,7 @@ export function Header() {
               onClick={() => setMobileOpen(true)}
               aria-label="Open menu"
             >
-              <MaterialIcon name="menu" className="text-[26px]" />
+              <Icon name="menu" className="text-[26px]" />
             </button>
           </div>
         </Container>
@@ -154,7 +147,7 @@ export function Header() {
             onClick={() => setMobileOpen(false)}
             aria-label="Close menu"
           >
-            <MaterialIcon name="close" className="text-[26px]" />
+            <Icon name="close" className="text-[26px]" />
           </button>
         </div>
 

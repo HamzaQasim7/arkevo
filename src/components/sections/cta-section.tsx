@@ -1,6 +1,7 @@
 import { FadeIn } from "@/components/motion";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
+import { Icon } from "@/components/ui/icon";
 import { NoiseOverlay } from "@/components/ui/noise-overlay";
 import { siteConfig } from "@/config/site";
 
@@ -49,12 +50,7 @@ export function CtaSection() {
 
               <FadeIn delay={0.3}>
                 <div className="flex items-start gap-4 rounded-md border border-border-low bg-bg p-6">
-                  <span
-                    className="material-symbols-outlined text-[22px] text-accent"
-                    aria-hidden
-                  >
-                    mail_outline
-                  </span>
+                  <Icon name="mail_outline" className="text-[22px] text-accent" />
                   <div>
                     <a
                       href={`mailto:${siteConfig.email}`}
@@ -71,12 +67,7 @@ export function CtaSection() {
 
               <FadeIn delay={0.4}>
                 <div className="flex items-start gap-4 rounded-md border border-border-low bg-bg p-6">
-                  <span
-                    className="material-symbols-outlined text-[22px] text-accent"
-                    aria-hidden
-                  >
-                    location_on
-                  </span>
+                  <Icon name="location_on" className="text-[22px] text-accent" />
                   <div>
                     <p className="font-body text-base font-medium text-text-primary">
                       {siteConfig.location}

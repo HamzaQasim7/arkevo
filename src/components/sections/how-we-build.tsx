@@ -1,5 +1,6 @@
 import { FadeIn } from "@/components/motion";
 import { Container } from "@/components/ui/container";
+import { Icon } from "@/components/ui/icon";
 import { cn } from "@/lib/utils";
 
 const processSteps = [
@@ -112,9 +113,10 @@ export function HowWeBuild() {
                     <span className="font-body text-[11px] uppercase tracking-[0.1em] text-text-muted">
                       {step.artifact}
                     </span>
-                    <span className="material-symbols-outlined text-accent transition-transform duration-300 group-open:rotate-180">
-                      expand_more
-                    </span>
+                    <Icon
+                      name="expand_more"
+                      className="text-accent transition-transform duration-300 group-open:rotate-180"
+                    />
                   </div>
                 </summary>
 

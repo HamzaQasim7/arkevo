@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { Icon } from "@/components/ui/icon";
 
 export function ContactSidebar() {
   const [open, setOpen] = useState(false);
@@ -44,7 +45,7 @@ export function ContactSidebar() {
             className="rounded p-2 text-text-secondary transition-colors hover:text-accent"
             aria-label="Close contact form"
           >
-            <span className="material-symbols-outlined">close</span>
+            <Icon name="close" />
           </button>
         </div>
 

@@ -39,11 +39,9 @@ export function createMetadata({
     },
     robots: noIndex ? { index: false, follow: false } : { index: true, follow: true },
     icons: {
-      icon: [
-        { url: siteConfig.logos.dark, media: "(prefers-color-scheme: dark)" },
-        { url: siteConfig.logos.light, media: "(prefers-color-scheme: light)" },
-      ],
-      apple: siteConfig.logos.dark,
+      icon: [{ url: siteConfig.favicon }],
+      shortcut: [{ url: siteConfig.favicon }],
+      apple: [{ url: siteConfig.favicon }],
     },
   };
 }

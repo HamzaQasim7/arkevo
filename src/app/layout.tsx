@@ -46,6 +46,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
+        suppressHydrationWarning
         className={`${syne.variable} ${dmSans.variable} ${jetbrainsMono.variable} min-h-screen`}
       >
         <ThemeProvider>

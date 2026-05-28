@@ -1,5 +1,6 @@
 import { FadeIn } from "@/components/motion";
 import { Container } from "@/components/ui/container";
+import { Icon } from "@/components/ui/icon";
 import { cn } from "@/lib/utils";
 
 const services = [
@@ -61,12 +62,10 @@ export function Services() {
                   service.featured && "border-t-2 border-t-accent"
                 )}
               >
-                <span
-                  className="material-symbols-outlined mb-6 text-[28px] text-text-secondary"
-                  aria-hidden
-                >
-                  {service.icon}
-                </span>
+                <Icon
+                  name={service.icon as "phone_iphone" | "web" | "psychology" | "map"}
+                  className="mb-6 text-[28px] text-text-secondary"
+                />
                 <h3 className="font-display text-xl font-bold text-text-primary">
                   {service.title}
                 </h3>

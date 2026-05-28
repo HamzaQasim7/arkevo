@@ -6,6 +6,7 @@ export const siteConfig = {
     "Arkevo is a software product studio from Pakistan building mobile apps, web platforms, and AI tools for global teams.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://arkevo.org",
   ogImage: "/og-image.png",
+  favicon: "/images/arkevo-favicon.png",
   logos: {
     dark: "/images/arkevo-dark-logo.png",
     light: "/images/arkevo-light-logo.png",
